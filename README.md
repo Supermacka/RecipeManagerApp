@@ -5,5 +5,8 @@ Create and save recipes, and have them all collected in one place. RecipeManager
 
 **Instructions:**
 1. Download and connect to SQL Server Management Studio (SSMS): https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15  
-2. Download and save the RecipeManagerApp.  
-3.  
+2. Download and save the RecipeManagerApp file/folder.  
+3. Locating the location of the saved file/folder go to:  
+"RecipeManagerApp-main" --> "RecipeManager_Winform", and then open the file "RecipeManager_Winform.csproj".
+4. Having opened the program in Visual Studio. Open the Package Manager Console (PMC) and write: Update-Database
+5. Run the program! 
