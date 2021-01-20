@@ -1,5 +1,9 @@
-# RecipeManagerApp
-Create and save recipes you like and have them all collected in one place. 
+**# RecipeManagerApp**
+Create and save recipes that you like, and have them all collected in one place. Calculates the calorie intake for each recipe to help you get an improved understanding of your health and needs.    
+
+*NOTE: Visual Studio and SQL Server Management Studio are required to run the app!
 
 **Instructions:**
-1. 
+1. Download and connect to SQL Server Management Studio (SSMS): https://docs.microsoft.com/en-us/sql/ssms/download-sql-server-management-studio-ssms?view=sql-server-ver15  
+2. Download and save the RecipeManagerApp.  
+3.  
