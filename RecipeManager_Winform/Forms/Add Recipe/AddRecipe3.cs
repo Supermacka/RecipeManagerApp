@@ -45,6 +45,7 @@ namespace RecipeManager_Winform.Forms
                 if (!foodCategoryList.Contains(userInputCategory) && !string.IsNullOrWhiteSpace(userInputCategory))
                 {
                     db.FoodCategories.Add(new FoodCategory { FoodCategoryName = userInputCategory });
+                    db.SaveChanges();
                 }
 
                 // Compare Source entries with existing DB
@@ -54,10 +55,18 @@ namespace RecipeManager_Winform.Forms
                 if (!SourceList.Contains(userInputSource) && !string.IsNullOrWhiteSpace(userInputCategory))
                 {
                     db.RecipeSources.Add(new RecipeSource { RecipeSourceName = userInputSource });
+                    db.SaveChanges();
                 }
-                db.SaveChanges();
 
                 // Add MainRecipe information to DB
+                AddRecipe1.MainRecipe.FoodCategoryId = (from c in db.FoodCategories
+                                                        where c.FoodCategoryName == AddRecipe1.UserInputCategory
+                                                        select c.FoodCategoryId).FirstOrDefault();
+
+                AddRecipe1.MainRecipe.RecipeSourceId = (from s in db.RecipeSources
+                                                        where s.RecipeSourceName == AddRecipe1.UserInputSource
+                                                        select s.RecipeSourceId).FirstOrDefault();
+
                 db.Recipes.Add(AddRecipe1.MainRecipe);
                 db.SaveChanges();
             }

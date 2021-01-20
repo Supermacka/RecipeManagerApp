@@ -99,12 +99,6 @@ namespace RecipeManager_Winform.Forms.Update_Recipe
                 // Get and Save recipe information for later use
                 Recipe recipe = new Recipe
                 {
-                    FoodCategoryId = (from c in db.FoodCategories
-                                      where c.FoodCategoryName == comboBoxCategory.Text
-                                      select c.FoodCategoryId).FirstOrDefault(),
-                    RecipeSourceId = (from s in db.RecipeSources
-                                      where s.RecipeSourceName == comboBoxSource.Text
-                                      select s.RecipeSourceId).FirstOrDefault(),
                     RecipeName = textBoxName.Text,
                     RecipeDescription = textBoxDescription.Text,
                     Duration = (int?)numericUpDownDuration.Value,

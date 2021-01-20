@@ -7,6 +7,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Linq;
 using RecipeManager_Winform.Data;
+using RecipeManager_Winform.Models;
 
 namespace RecipeManager_Winform.Forms.Update_Recipe
 {
@@ -79,6 +80,26 @@ namespace RecipeManager_Winform.Forms.Update_Recipe
             using (RecipesContext db = new RecipesContext())
             {
                 // Compare Category entries with existing DB
+                string userInputCategory = UpdateRecipe1.UserInputCategory;
+                List<string> foodCategoryList = new List<string>();
+                foodCategoryList = db.FoodCategories.Select(i => i.FoodCategoryName).ToList();
+                if (!foodCategoryList.Contains(userInputCategory) && !string.IsNullOrWhiteSpace(userInputCategory))
+                {
+                    db.FoodCategories.Add(new FoodCategory { FoodCategoryName = userInputCategory });
+                    db.SaveChanges();
+                }
+
+                // Compare Source entries with existing DB
+                string userInputSource = UpdateRecipe1.UserInputSource;
+                List<string> SourceList = new List<string>();
+                SourceList = db.RecipeSources.Select(i => i.RecipeSourceName).ToList();
+                if (!SourceList.Contains(userInputSource) && !string.IsNullOrWhiteSpace(userInputCategory))
+                {
+                    db.RecipeSources.Add(new RecipeSource { RecipeSourceName = userInputSource });
+                    db.SaveChanges();
+                }
+
+                // Compare Category entries with existing DB
                 int selectedRecipeID = Form1.SelectedRecipeID;
 
                 Recipe recipe = (from r in db.Recipes
@@ -87,8 +108,14 @@ namespace RecipeManager_Winform.Forms.Update_Recipe
 
                 if (recipe != null)
                 {
-                    recipe.FoodCategoryId = UpdateRecipe1.MainRecipe.FoodCategoryId;
-                    recipe.RecipeSourceId = UpdateRecipe1.MainRecipe.RecipeSourceId;
+                    recipe.FoodCategoryId = (from c in db.FoodCategories
+                                                            where c.FoodCategoryName == UpdateRecipe1.UserInputCategory
+                                                            select c.FoodCategoryId).FirstOrDefault();
+
+                    recipe.RecipeSourceId = (from s in db.RecipeSources
+                                                            where s.RecipeSourceName == UpdateRecipe1.UserInputSource
+                                                            select s.RecipeSourceId).FirstOrDefault();
+
                     recipe.RecipeName = UpdateRecipe1.MainRecipe.RecipeName;
                     recipe.RecipeDescription = UpdateRecipe1.MainRecipe.RecipeDescription;
                     recipe.Duration = UpdateRecipe1.MainRecipe.Duration;
