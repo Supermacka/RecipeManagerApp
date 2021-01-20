@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RecipeManager_Winform", "RecipeManager_Winform\RecipeManager_Winform.csproj", "{195802F2-9134-4577-83A6-A54530F136AD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{195802F2-9134-4577-83A6-A54530F136AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{195802F2-9134-4577-83A6-A54530F136AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{195802F2-9134-4577-83A6-A54530F136AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{195802F2-9134-4577-83A6-A54530F136AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {A72311F8-A17E-4DBC-A86B-16569CBF168D}
+	EndGlobalSection
+EndGlobal
