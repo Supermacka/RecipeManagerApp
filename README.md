@@ -10,7 +10,7 @@ Create and save recipes, and have them all collected in one place. RecipeManager
 
 (If VS and SSMS are downloaded on your system)
 1. Download and save the RecipeManagerApp file/folder.  
-2. Having located the the saved file/folder, go to:  
+2. Having located the saved file/folder, go to:  
 "RecipeManagerApp-main" --> "RecipeManager_Winform", and then open the file "RecipeManager_Winform.csproj".  
 3. Having opened the program in Visual Studio. Open the Package Manager Console (PMC) and write: Update-Database  
 4. Run the program! 
